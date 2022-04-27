@@ -34,7 +34,6 @@
             // 
             // BtnClose
             // 
-            this.BtnClose.Image = global::JOGO.Properties.Resources.Close;
             this.BtnClose.Location = new System.Drawing.Point(1065, 12);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(52, 47);
@@ -47,11 +46,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1129, 793);
             this.Controls.Add(this.BtnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.ResumeLayout(false);
 

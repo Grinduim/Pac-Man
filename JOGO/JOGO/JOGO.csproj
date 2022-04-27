@@ -54,15 +54,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +73,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacaman-openmouth-bot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-openmouth-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pacman-Openmouth-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-openmouth-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-closemouthn-bot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-closemouthn-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-closemouthn-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-closemouthn-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-amarelo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-amarelo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-azul2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-rosa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-rose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-vermelho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-vermelho2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
