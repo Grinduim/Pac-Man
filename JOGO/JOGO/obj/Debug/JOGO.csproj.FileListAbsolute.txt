@@ -1,4 +1,0 @@
-C:\Users\Aluno\Desktop\Pac-Man\JOGO\JOGO\obj\Debug\JOGO.csproj.AssemblyReference.cache
-C:\Users\Aluno\Desktop\Pac-Man\JOGO\JOGO\obj\Debug\JOGO.csproj.SuggestedBindingRedirects.cache
-C:\Users\Aluno\Desktop\Pac-Man\JOGO\JOGO\obj\Debug\JOGO.Form1.resources
-C:\Users\Aluno\Desktop\Pac-Man\JOGO\JOGO\obj\Debug\JOGO.csproj.GenerateResource.cache
