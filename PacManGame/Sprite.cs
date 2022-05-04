@@ -35,15 +35,13 @@ namespace PacManGame
 
         public void Move()
         {
-            posX += velX;
+            PosX += velX;
             posY += velY;
         }
 
-        public void Draw(PictureBox Jogo)
+        public void Draw(PictureBox Jogo, Graphics g)
         {
-            Bitmap bmp = Jogo.Image as Bitmap;
-            Graphics g = Graphics.FromImage(bmp);
-            g.Clear(Color.Black);
+            
             if ( PosImageAtual%2 == 0)
             {
                 PosImageAtual ++;
@@ -54,6 +52,11 @@ namespace PacManGame
             }
 
             g.DrawImage(image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
+        }
+
+        public virtual void Colisao(PictureBox Jogo)
+        {
+
         }
     }
 }

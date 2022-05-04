@@ -145,28 +145,28 @@
   <data name="ghost_vermelho2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ghost-vermelho2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacaman_openmouth_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacaman-openmouth-bot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacaman_baixo_aberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacaman-baixo-aberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_closemouthn_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-closemouthn-bot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_baixo_fechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-fechado-fechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_closemouthn_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-closemouthn-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_cima_aberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-cima-aberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_closemouthn_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-closemouthn-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_cima_fechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-cima-fechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_closemouthn_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-closemouthn-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_direita_fechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-direita-fechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_openmouth_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-openmouth-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_direito_aberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-direito-aberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pacman_Openmouth_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pacman-Openmouth-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_esquerda_aberto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-esquerda-aberto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacman_openmouth_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacman-openmouth-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman_esquerda_fechado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman-esquerda-fechado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

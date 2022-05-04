@@ -9,3 +9,14 @@ C:\Users\Aluno\Desktop\PacManGame\PacManGame\obj\Debug\PacManGame.csproj.CoreCom
 C:\Users\Aluno\Desktop\PacManGame\PacManGame\obj\Debug\PacManGame.exe
 C:\Users\Aluno\Desktop\PacManGame\PacManGame\obj\Debug\PacManGame.pdb
 C:\Users\Aluno\Desktop\PacManGame\PacManGame\obj\Debug\PacManGame.PacManMain.resources
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\bin\Debug\PacManGame.exe.config
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\bin\Debug\PacManGame.exe
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\bin\Debug\PacManGame.pdb
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.AssemblyReference.cache
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.PacManMain.resources
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.Properties.Resources.resources
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.GenerateResource.cache
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.exe
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.pdb

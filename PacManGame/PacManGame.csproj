@@ -133,5 +133,29 @@
   <ItemGroup>
     <None Include="Resources\pacman-openmouth-up.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacaman-baixo-aberto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-cima-aberto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-direito-aberto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-esquerda-aberto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-cima-fechado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-direita-fechado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-esquerda-fechado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman-fechado-fechado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

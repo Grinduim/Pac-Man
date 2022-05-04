@@ -16,6 +16,7 @@ namespace PacManGame
 
 
         Timer tm = new Timer();
+        
         public PacManMain()
         {
             InitializeComponent();
@@ -25,14 +26,18 @@ namespace PacManGame
         private void PacManMain_Load(object sender, EventArgs e)
         {
             Jogo.Image = new Bitmap(Jogo.Width, Jogo.Height);
-            Pacman.Draw(Jogo);
+            Bitmap bmp = Jogo.Image as Bitmap;
+            Graphics g = Graphics.FromImage(bmp);
+            Pacman.Draw(Jogo,g);
             Jogo.Refresh();
 
-            tm.Interval = 60;
+            tm.Interval = 75;
             tm.Tick += delegate
             {
                 Pacman.Move();
-                Pacman.Draw(Jogo);
+                g.Clear(Color.Black);
+                Pacman.Colisao(Jogo);
+                Pacman.Draw(Jogo,g);
                 Jogo.Refresh();
             };
             tm.Start();
