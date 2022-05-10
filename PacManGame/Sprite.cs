@@ -33,13 +33,14 @@ namespace PacManGame
         public Image[] Image { get => image; set => image = value; }
         public int PosImageAtual { get => posImageAtual; set => posImageAtual = value; }
 
-        public void Move()
+        public void Move(Timer tm)
         {
             PosX += velX;
             posY += velY;
+            tm.Start();
         }
 
-        public void Draw(PictureBox Jogo, Graphics g)
+        public virtual void Draw(PictureBox Jogo, Graphics g)
         {
             
             if ( PosImageAtual%2 == 0)
@@ -54,7 +55,7 @@ namespace PacManGame
             g.DrawImage(image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
         }
 
-        public virtual void Colisao(PictureBox Jogo)
+        public virtual void Colisao(PictureBox Jogo, Timer tm)
         {
 
         }

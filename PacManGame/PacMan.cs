@@ -33,18 +33,27 @@ namespace PacManGame
         public void Right()
         {
             this.PosImageAtual = 0;
-            if(this.Direction != 0)
+            RotateFlipType rft = new RotateFlipType();
+            if (this.Direction != 0)
             {
+                if(this.direction == 1)
+                {
+                    rft = (RotateFlipType)4;
+                }
+                if(this.direction == 2)
+                {
+                    rft = (RotateFlipType)1;
+                }
+                if (this.direction == 3)
+                {
+                    rft = (RotateFlipType)5;
+                }
                 var printImage = this.Image[0];
-                direction = direction *-1 +3;
-                RotateFlipType rft = (RotateFlipType)direction;
                 printImage.RotateFlip(rft);
                 printImage = this.Image[1];
-                rft = (RotateFlipType)direction;
                 printImage.RotateFlip(rft);
             }
                 
-
             this.direction = 0;
             this.VelX = 10;
             this.VelY = 0;
@@ -52,28 +61,58 @@ namespace PacManGame
 
         public void Left()
         {
-            
+
             this.PosImageAtual = 0;
+            RotateFlipType rft = new RotateFlipType();
             if (this.Direction != 1)
             {
+                if (this.direction == 0)
+                {
+                    rft = (RotateFlipType)4;
+                }
+                if (this.direction == 3)
+                {
+                    rft = (RotateFlipType)1;
+                }
+                if (this.direction == 2)
+                {
+                    rft = (RotateFlipType)5;
+                }
                 var printImage = this.Image[0];
-                direction = direction *-1 +4;
-                RotateFlipType rft = (RotateFlipType)direction;
                 printImage.RotateFlip(rft);
                 printImage = this.Image[1];
-                rft = (RotateFlipType)direction;
                 printImage.RotateFlip(rft);
             }
 
             this.direction = 1;
             this.VelX = -10;
-            this.VelY = 0; 
-
+            this.VelY = 0;
         }
 
         public void Up()
         {
             this.PosImageAtual = 0;
+            RotateFlipType rft = new RotateFlipType();
+            if (this.Direction != 2)
+            {
+                if (this.direction == 3)
+                {
+                    rft = (RotateFlipType)6;
+                }
+                if (this.direction == 0)
+                {
+                    rft = (RotateFlipType)3;
+                }
+                if (this.direction == 1)
+                {
+                    rft = (RotateFlipType)5;
+                }
+                var printImage = this.Image[0];
+                printImage.RotateFlip(rft);
+                printImage = this.Image[1];
+                printImage.RotateFlip(rft);
+            }
+
             this.direction = 2;
             this.VelX = 0;
             this.VelY = -10;
@@ -82,24 +121,53 @@ namespace PacManGame
         public void Down()
         {
             this.PosImageAtual = 0;
+
+            RotateFlipType rft = new RotateFlipType();
+            if (this.Direction != 3)
+            {
+                if (this.direction == 2)
+                {
+                    rft = (RotateFlipType)6;
+                }
+                if (this.direction == 0)
+                {
+                    rft = (RotateFlipType)5;
+                }
+                if (this.direction == 1)
+                {
+                    rft = (RotateFlipType)3;
+                }
+                var printImage = this.Image[0];
+                printImage.RotateFlip(rft);
+                printImage = this.Image[1];
+                printImage.RotateFlip(rft);
+            }
             this.direction =3;
             this.VelX = 0;
             this.VelY = 10;
         }
 
-        public  override void Colisao(PictureBox Jogo)
+        public void Colisao(PictureBox Jogo, Timer tm)
         {
             if (PosX <= 0)
             {
-                PosX = 0;
+                PosX = +10;
+                tm.Stop();
             }
             if (PosY <= 0)
             {
-                PosY = 0;
+                PosY = +10;
+                tm.Stop();
             }
             if (PosX+SizeX >= Jogo.Width)
             {
-                PosX = Jogo.Width - SizeX;
+                PosX = Jogo.Width - SizeX-10;
+                tm.Stop();
+            }
+            if(PosY+SizeY >= Jogo.Height)
+            {
+                PosY = Jogo.Height - SizeY-10;
+                tm.Stop();
             }
         }
 

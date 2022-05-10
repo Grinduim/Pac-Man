@@ -31,12 +31,12 @@ namespace PacManGame
             Pacman.Draw(Jogo,g);
             Jogo.Refresh();
 
-            tm.Interval = 75;
+            tm.Interval = 20;
             tm.Tick += delegate
             {
-                Pacman.Move();
+                Pacman.Move(tm);
                 g.Clear(Color.Black);
-                Pacman.Colisao(Jogo);
+                Pacman.Colisao(Jogo,tm);
                 Pacman.Draw(Jogo,g);
                 Jogo.Refresh();
             };
@@ -48,26 +48,30 @@ namespace PacManGame
             var KeyPress = e.KeyCode;
             if (e.KeyCode == Keys.Escape)
             {
-                Application.Exit();                                                                                                                                                                 
+                Application.Exit();                                                                 
                 return;
             }
             if (e.KeyCode == Keys.Right)
             {
                 Pacman.Right();
+                tm.Start();
                 return;
             }
             if(e.KeyCode == Keys.Left) {
                 Pacman.Left();
+                tm.Start();
                 return;
             }
             if (e.KeyCode == Keys.Down)
             {
                 Pacman.Down();
+                tm.Start();
                 return;
             }
             if(e.KeyCode == Keys.Up)
             {
                 Pacman.Up();
+                tm.Start();
                 return;
             }
 
