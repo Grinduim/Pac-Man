@@ -13,7 +13,7 @@ namespace PacManGame
     public partial class PacManMain : Form
     {
         PacMan Pacman = new PacMan(10, 20, 10, 00, 80, 80, 0);
-
+        
 
         Timer tm = new Timer();
         
@@ -25,19 +25,21 @@ namespace PacManGame
 
         private void PacManMain_Load(object sender, EventArgs e)
         {
+            Paredes parede = new Paredes(150, 200, 300, 60);
+            Paredes.TodasAsParedes.Add(parede);
             Jogo.Image = new Bitmap(Jogo.Width, Jogo.Height);
             Bitmap bmp = Jogo.Image as Bitmap;
             Graphics g = Graphics.FromImage(bmp);
             Pacman.Draw(Jogo,g);
             Jogo.Refresh();
-
-            tm.Interval = 20;
+            tm.Interval = 40;
             tm.Tick += delegate
             {
                 Pacman.Move(tm);
                 g.Clear(Color.Black);
                 Pacman.Colisao(Jogo,tm);
                 Pacman.Draw(Jogo,g);
+                Paredes.DrawAll(Jogo, g);
                 Jogo.Refresh();
             };
             tm.Start();

@@ -53,6 +53,7 @@
     <Compile Include="PacManMain.Designer.cs">
       <DependentUpon>PacManMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paredes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />
@@ -156,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pacman-fechado-fechado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

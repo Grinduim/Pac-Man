@@ -169,6 +169,14 @@ namespace PacManGame
                 PosY = Jogo.Height - SizeY-10;
                 tm.Stop();
             }
+
+            foreach (Paredes item in Paredes.TodasAsParedes)
+            {
+                if(PosX <= item.PosX+item.SizeX && PosY >= item.PosY && PosY <= item.PosY + item.SizeY)
+                {
+                    PosX = PosX + VelX;
+                }
+            }
         }
 
         public void Draw(PictureBox Jogo, Graphics g)
