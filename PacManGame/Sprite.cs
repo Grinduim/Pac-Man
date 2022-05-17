@@ -19,6 +19,8 @@ namespace PacManGame
         private Image[] image;
         int posImageAtual;
 
+        public HitBox HitBox { get; set; }
+
         public Sprite()
         {
 
@@ -42,15 +44,18 @@ namespace PacManGame
 
         public virtual void Draw(PictureBox Jogo, Graphics g)
         {
-            
-            if ( PosImageAtual%2 == 0)
+            if (this.image.Length >= 2)
             {
-                PosImageAtual ++;
+                if (PosImageAtual % 2 == 0)
+                {
+                    PosImageAtual++;
+                }
+                else
+                {
+                    PosImageAtual--;
+                }
             }
-            else
-            {
-                PosImageAtual --;
-            }
+
 
             g.DrawImage(image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
         }
@@ -59,5 +64,15 @@ namespace PacManGame
         {
 
         }
+
+        public void CheckCollision(Sprite entity)
+        {
+            var info = HitBox.IsColliding(entity.HitBox);
+            if (info.IsColliding) OnCollision(info, entity);
+            info = entity.HitBox.IsColliding(HitBox);
+            if (info.IsColliding) OnCollision(info, entity);
+        }
+
+        public virtual void OnCollision(CollisionInfo info, Sprite sprite) { }
     }
 }

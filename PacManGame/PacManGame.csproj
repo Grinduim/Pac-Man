@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coin.cs" />
+    <Compile Include="ColissionInfo.cs" />
+    <Compile Include="HitBox.cs" />
     <Compile Include="PacMan.cs" />
     <Compile Include="PacManMain.cs">
       <SubType>Form</SubType>
@@ -56,7 +59,9 @@
     <Compile Include="Paredes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecHitBox.cs" />
     <Compile Include="Sprite.cs" />
+    <Compile Include="SpriteHitBox.cs" />
     <EmbeddedResource Include="PacManMain.resx">
       <DependentUpon>PacManMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

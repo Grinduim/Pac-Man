@@ -13,19 +13,20 @@ namespace PacManGame
 
         int direction = 0;
 
-        public int Direction { get => direction; set => direction=value; }
+        public int Direction { get => direction; set => direction = value; }
 
-        public PacMan(float posX, float posY, float velX, float velY, int sizeX, int sizeY, int posimage)
+        public PacMan(float posX, float posY)
         {
             this.PosX = posX;
             this.PosY = posY;
-            this.VelX = velX;
-            this.VelY = velY;
-            this.SizeX = sizeX;
-            this.SizeY = sizeY;
-            this.Image = new Image[] { Properties.Resources.pacman_direito_aberto, Properties.Resources.pacman_direita_fechado};
+            this.VelX = 00;
+            this.VelY = 00;
+            this.SizeX = 80;
+            this.SizeY = 80;
+            this.Image = new Image[] { Properties.Resources.pacman_direito_aberto, Properties.Resources.pacman_direita_fechado };
+            this.HitBox = HitBox.FromSprite(this);
 
-            this.PosImageAtual = posimage;
+            this.PosImageAtual = 0;
 
             this.Direction = 0;
         }
@@ -36,11 +37,11 @@ namespace PacManGame
             RotateFlipType rft = new RotateFlipType();
             if (this.Direction != 0)
             {
-                if(this.direction == 1)
+                if (this.direction == 1)
                 {
                     rft = (RotateFlipType)4;
                 }
-                if(this.direction == 2)
+                if (this.direction == 2)
                 {
                     rft = (RotateFlipType)1;
                 }
@@ -53,7 +54,7 @@ namespace PacManGame
                 printImage = this.Image[1];
                 printImage.RotateFlip(rft);
             }
-                
+
             this.direction = 0;
             this.VelX = 10;
             this.VelY = 0;
@@ -142,47 +143,55 @@ namespace PacManGame
                 printImage = this.Image[1];
                 printImage.RotateFlip(rft);
             }
-            this.direction =3;
+            this.direction = 3;
             this.VelX = 0;
             this.VelY = 10;
         }
 
-        public void Colisao(PictureBox Jogo, Timer tm)
-        {
-            if (PosX <= 0)
-            {
-                PosX = +10;
-                tm.Stop();
-            }
-            if (PosY <= 0)
-            {
-                PosY = +10;
-                tm.Stop();
-            }
-            if (PosX+SizeX >= Jogo.Width)
-            {
-                PosX = Jogo.Width - SizeX-10;
-                tm.Stop();
-            }
-            if(PosY+SizeY >= Jogo.Height)
-            {
-                PosY = Jogo.Height - SizeY-10;
-                tm.Stop();
-            }
+        //public void Colisao(PictureBox Jogo, Timer tm, List<Coin> ListCoin)
+        //{
+        //    if (PosX <= 0)
+        //    {
+        //        PosX = +10;
+        //        tm.Stop();
+        //    }
+        //    if (PosY <= 0)
+        //    {
+        //        PosY = +10;
+        //        tm.Stop();
+        //    }
+        //    if (PosX+SizeX >= Jogo.Width)
+        //    {
+        //        PosX = Jogo.Width - SizeX-10;
+        //        tm.Stop();
+        //    }
+        //    if(PosY+SizeY >= Jogo.Height)
+        //    {
+        //        PosY = Jogo.Height - SizeY-10;
+        //        tm.Stop();
+        //    }
 
-            foreach (Paredes item in Paredes.TodasAsParedes)
-            {
-                if(PosX <= item.PosX+item.SizeX && PosY >= item.PosY && PosY <= item.PosY + item.SizeY)
-                {
-                    PosX = PosX + VelX;
-                }
-            }
-        }
+        //    foreach (Paredes item in Paredes.TodasAsParedes)
+        //    {
+        //        if(this.PosX >= item.PosX && this.PosX <= item.PosX + item.SizeX && this.PosY >= item.PosY && this.PosY <= item.PosY + item.SizeY)
+        //        {
+        //            tm.Stop();
+        //        }
+        //    }
+
+        //    foreach(Coin item in ListCoin)
+        //    {
+        //        if (this.PosX >= item.PosX && this.PosX <= item.PosX + item.SizeX && this.PosY >= item.PosY && this.PosY <= item.PosY + item.SizeY)
+        //        {
+        //            item.Coletada = false;
+        //        }
+        //    }
+        //}
 
         public void Draw(PictureBox Jogo, Graphics g)
         {
 
-            if (PosImageAtual%2 == 0)
+            if (PosImageAtual % 2 == 0)
             {
                 PosImageAtual++;
             }
@@ -195,6 +204,14 @@ namespace PacManGame
             g.DrawImage(this.Image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
 
         }
+
+        public override void OnCollision(CollisionInfo info, Sprite sprite)
+        {
+            if (sprite is Coin c)
+            {
+                c.Pegou();
+            }
+        }
     }
-    }
+}
 

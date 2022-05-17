@@ -83,6 +83,16 @@ namespace PacManGame.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coin {
+            get {
+                object obj = ResourceManager.GetObject("coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ghost_amarelo {
             get {
                 object obj = ResourceManager.GetObject("ghost_amarelo", resourceCulture);
