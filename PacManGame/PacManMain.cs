@@ -41,7 +41,8 @@ namespace PacManGame
             {
                 Pacman.Move(tm);
                 g.Clear(Color.Black);
-                Pacman.CheckCollision(coin);
+                Pacman.CheckCollision(Coin.TodasMoedas);
+                Pacman.CheckCollision(Paredes.TodasAsParedes);
                 Pacman.HitBox.Draw(g);
                 coin.HitBox.Draw(g);
                 Pacman.Draw(Jogo,g);

@@ -65,12 +65,16 @@ namespace PacManGame
 
         }
 
-        public void CheckCollision(Sprite entity)
+        public void CheckCollision(IEnumerable<Sprite> sprites)
         {
-            var info = HitBox.IsColliding(entity.HitBox);
-            if (info.IsColliding) OnCollision(info, entity);
-            info = entity.HitBox.IsColliding(HitBox);
-            if (info.IsColliding) OnCollision(info, entity);
+            foreach(var entity in sprites)
+            {
+                var info = HitBox.IsColliding(entity.HitBox);
+                if (info.IsColliding) OnCollision(info, entity);
+                info = entity.HitBox.IsColliding(HitBox);
+                if (info.IsColliding) OnCollision(info, entity);
+            }
+            
         }
 
         public virtual void OnCollision(CollisionInfo info, Sprite sprite) { }

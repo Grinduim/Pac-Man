@@ -24,6 +24,7 @@ namespace PacManGame
             VelX = 0;
             VelY = 0;
             this.Image = new Image[] { Properties.Resources.bars };
+            this.HitBox = HitBox.FromRectangle( new RectangleF(PosX,PosY, SizeX,sizey)); 
             PosImageAtual = 0;
         }
 
@@ -37,6 +38,7 @@ namespace PacManGame
             foreach(Paredes parede in Paredes.TodasAsParedes)
             {
                 parede.Draw(Jogo,g);
+                parede.HitBox.Draw(g);
 
             }
         }

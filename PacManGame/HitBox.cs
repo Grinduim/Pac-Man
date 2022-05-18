@@ -109,5 +109,6 @@ namespace PacManGame
         }
         public void Draw(Graphics g)
             => g.DrawPolygon(Pens.Red, Points);
+
     }
 }

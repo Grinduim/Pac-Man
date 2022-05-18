@@ -45,5 +45,13 @@ namespace PacManGame
         {
             this.Coletada = true;
         }
+
+        public override void OnCollision(CollisionInfo info, Sprite sprite)
+        {
+            if (sprite is PacMan)
+            {
+                this.Pegou();
+            }
+        }
     }
 }

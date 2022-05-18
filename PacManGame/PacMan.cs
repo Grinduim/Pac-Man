@@ -12,6 +12,7 @@ namespace PacManGame
     {
 
         int direction = 0;
+        public float coefVel { get; set; }
 
         public int Direction { get => direction; set => direction = value; }
 
@@ -23,12 +24,14 @@ namespace PacManGame
             this.VelY = 00;
             this.SizeX = 80;
             this.SizeY = 80;
-            this.Image = new Image[] { Properties.Resources.pacman_direito_aberto, Properties.Resources.pacman_direita_fechado };
+            this.Image = new Image[] { Properties.Resources.pacman_boca_aberta, Properties.Resources.pacaman_boca_fechada };
             this.HitBox = HitBox.FromSprite(this);
 
             this.PosImageAtual = 0;
 
             this.Direction = 0;
+
+            coefVel = 10;
         }
 
         public void Right()
@@ -56,7 +59,7 @@ namespace PacManGame
             }
 
             this.direction = 0;
-            this.VelX = 10;
+            this.VelX = coefVel;
             this.VelY = 0;
         }
 
@@ -116,7 +119,7 @@ namespace PacManGame
 
             this.direction = 2;
             this.VelX = 0;
-            this.VelY = -10;
+            this.VelY = -coefVel;
         }
 
         public void Down()
@@ -145,7 +148,7 @@ namespace PacManGame
             }
             this.direction = 3;
             this.VelX = 0;
-            this.VelY = 10;
+            this.VelY = coefVel;
         }
 
         //public void Colisao(PictureBox Jogo, Timer tm, List<Coin> ListCoin)
@@ -211,6 +214,33 @@ namespace PacManGame
             {
                 c.Pegou();
             }
+            if(sprite is Paredes p)
+            {
+                if(info.SideA.X != info.SideB.X)
+                {
+                    if(info.SideA.Y >= this.PosY)
+                    {
+                        this.PosY = PosY - VelY;
+                    }
+                    else
+                    {
+                        this.PosY = PosY + VelY;
+                    }
+                    
+                }
+                else if( info.SideB.Y != info.SideA.Y)
+                {
+                    if (info.SideA.X >= this.PosX )
+                    {
+                        this.PosX = PosX  - VelX;
+                    }
+                    else if( info.SideB.Y <= this.PosX)
+                    {
+                        this.PosX = PosX - VelX;
+                    }
+                }
+            }
+            
         }
     }
 }

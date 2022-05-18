@@ -173,9 +173,9 @@ namespace PacManGame.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pacaman_baixo_aberto {
+        internal static System.Drawing.Bitmap pacaman_boca_fechada {
             get {
-                object obj = ResourceManager.GetObject("pacaman_baixo_aberto", resourceCulture);
+                object obj = ResourceManager.GetObject("pacaman_boca_fechada", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,69 +183,9 @@ namespace PacManGame.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pacman_baixo_fechado {
+        internal static System.Drawing.Bitmap pacman_boca_aberta {
             get {
-                object obj = ResourceManager.GetObject("pacman_baixo_fechado", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_cima_aberto {
-            get {
-                object obj = ResourceManager.GetObject("pacman_cima_aberto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_cima_fechado {
-            get {
-                object obj = ResourceManager.GetObject("pacman_cima_fechado", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_direita_fechado {
-            get {
-                object obj = ResourceManager.GetObject("pacman_direita_fechado", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_direito_aberto {
-            get {
-                object obj = ResourceManager.GetObject("pacman_direito_aberto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_esquerda_aberto {
-            get {
-                object obj = ResourceManager.GetObject("pacman_esquerda_aberto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pacman_esquerda_fechado {
-            get {
-                object obj = ResourceManager.GetObject("pacman_esquerda_fechado", resourceCulture);
+                object obj = ResourceManager.GetObject("pacman_boca_aberta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
