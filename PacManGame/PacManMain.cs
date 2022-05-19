@@ -21,15 +21,17 @@ namespace PacManGame
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+           
         }
 
         private void PacManMain_Load(object sender, EventArgs e)
         {
-            Paredes parede = new Paredes(150, 200, 300, 60);
-            Paredes.TodasAsParedes.Add(parede);
+            Pacman.PosX = Jogo.Width / 2;
+            Pacman.PosY = Jogo.Height / 2;
+            CriarParedes();
+            
 
             var coin = new Coin(400, 150);
-            Coin.TodasMoedas.Add(coin);
 
             Jogo.Image = new Bitmap(Jogo.Width, Jogo.Height);
             Bitmap bmp = Jogo.Image as Bitmap;
@@ -85,6 +87,18 @@ namespace PacManGame
                 tm.Start();
                 return;
             }
+
+        }
+
+        public void CriarParedes()
+        {
+            Paredes p0 = new Paredes(0, 0, 50, Jogo.Height);
+            Paredes p1 = new Paredes(0, 0, Jogo.Width, 50);
+            Paredes p2 = new Paredes(Jogo.Width -50,0,50, Jogo.Height);
+            Paredes p3 = new Paredes(0, Jogo.Height-50, Jogo.Width, 50);
+
+            Paredes p4 = new Paredes(Jogo.Width / 9, Jogo.Height / 7, 300, 50);
+
 
         }
     }

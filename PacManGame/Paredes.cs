@@ -26,6 +26,8 @@ namespace PacManGame
             this.Image = new Image[] { Properties.Resources.bars };
             this.HitBox = HitBox.FromRectangle( new RectangleF(PosX,PosY, SizeX,sizey)); 
             PosImageAtual = 0;
+            TodasAsParedes.Add(this);
+
         }
 
         public override void Draw(PictureBox Jogo, Graphics g)

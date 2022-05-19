@@ -89,7 +89,7 @@ namespace PacManGame
             }
 
             this.direction = 1;
-            this.VelX = -10;
+            this.VelX = -coefVel;
             this.VelY = 0;
         }
 
@@ -191,7 +191,7 @@ namespace PacManGame
         //    }
         //}
 
-        public void Draw(PictureBox Jogo, Graphics g)
+        public  override void Draw(PictureBox Jogo, Graphics g)
         {
 
             if (PosImageAtual % 2 == 0)
@@ -210,38 +210,52 @@ namespace PacManGame
 
         public override void OnCollision(CollisionInfo info, Sprite sprite)
         {
+
             if (sprite is Coin c)
             {
                 c.Pegou();
             }
             if(sprite is Paredes p)
             {
-                if(info.SideA.X != info.SideB.X)
+                if(info.SideA.X  == info.SideB.X)
                 {
-                    if(info.SideA.Y >= this.PosY)
-                    {
-                        this.PosY = PosY - VelY;
-                    }
-                    else
-                    {
-                        this.PosY = PosY + VelY;
-                    }
-                    
-                }
-                else if( info.SideB.Y != info.SideA.Y)
-                {
-                    if (info.SideA.X >= this.PosX )
-                    {
-                        this.PosX = PosX  - VelX;
-                    }
-                    else if( info.SideB.Y <= this.PosX)
-                    {
+                    //if(info.SideA.X >= this.PosX)
+                    //{
                         this.PosX = PosX - VelX;
-                    }
+                    //}
                 }
-            }
+                else
+                {
+                    this.PosY = this.PosY - VelY;
+                }
+
             
+            }
+
+            //if(info.SideA.Y == info.SideB.Y)
+            //{
+            //    if(info.SideA.Y >= this.PosY)
+            //    {
+            //        this.PosX = PosX - VelX;
+
+            //    }
+            //    else
+            //    {
+            //        this.PosY = PosY + VelY;
+            //    }
+            //else if( info.SideB.Y != info.SideA.Y)
+            //{
+            //    if (info.SideA.X >= this.PosX )
+            //    {
+            //        this.PosX = PosX  - VelX;
+            //    }
+            //    else if( info.SideB.Y <= this.PosX)
+            //    {
+            //        this.PosX = PosX - VelX;
+            //    }
+            //}
         }
+
     }
-}
+    }
 

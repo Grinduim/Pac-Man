@@ -27,6 +27,8 @@ namespace PacManGame
 
             this.PosImageAtual = 0;
             Coletada = false;
+
+            TodasMoedas.Add(this);
         }
 
         public static  void DrawAll(PictureBox Jogo, Graphics g)
@@ -46,7 +48,7 @@ namespace PacManGame
             this.Coletada = true;
         }
 
-        public override void OnCollision(CollisionInfo info, Sprite sprite)
+        public override void OnCollision(CollisionInfo info, Sprite sprite )
         {
             if (sprite is PacMan)
             {
