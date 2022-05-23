@@ -217,43 +217,26 @@ namespace PacManGame
             }
             if(sprite is Paredes p)
             {
-                if(info.SideA.X  == info.SideB.X)
+                if (info.CollisionPoints.Count > 1)
                 {
-                    //if(info.SideA.X >= this.PosX)
-                    //{
+                    if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
+                    {
                         this.PosX = PosX - VelX;
-                    //}
+                    }
+                    else
+                    {
+                        this.PosY = this.PosY - VelY;
+                    }
+                }
+                else if(info.SideA.X  == info.SideB.X)
+                {
+                        this.PosX = PosX - VelX;
                 }
                 else
                 {
                     this.PosY = this.PosY - VelY;
                 }
-
-            
             }
-
-            //if(info.SideA.Y == info.SideB.Y)
-            //{
-            //    if(info.SideA.Y >= this.PosY)
-            //    {
-            //        this.PosX = PosX - VelX;
-
-            //    }
-            //    else
-            //    {
-            //        this.PosY = PosY + VelY;
-            //    }
-            //else if( info.SideB.Y != info.SideA.Y)
-            //{
-            //    if (info.SideA.X >= this.PosX )
-            //    {
-            //        this.PosX = PosX  - VelX;
-            //    }
-            //    else if( info.SideB.Y <= this.PosX)
-            //    {
-            //        this.PosX = PosX - VelX;
-            //    }
-            //}
         }
 
     }

@@ -70,9 +70,11 @@ namespace PacManGame
             foreach(var entity in sprites)
             {
                 var info = HitBox.IsColliding(entity.HitBox);
-                if (info.IsColliding) OnCollision(info, entity);
+                if (info.IsColliding)
+                    OnCollision(info, entity);
                 info = entity.HitBox.IsColliding(HitBox);
-                if (info.IsColliding) OnCollision(info, entity);
+                if (info.IsColliding)
+                    OnCollision(info, entity);
             }
             
         }

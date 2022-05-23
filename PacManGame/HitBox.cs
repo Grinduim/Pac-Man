@@ -17,7 +17,7 @@ namespace PacManGame
                 {
                     info.IsColliding = true;
                     (info.SideA, info.SideB) = bestside(this.Points, p);
-                    return info;
+                    info.CollisionPoints.Add(p);
                 }
             }
 
