@@ -26,7 +26,7 @@ namespace PacManGame
 
         private void PacManMain_Load(object sender, EventArgs e)
         {
-            Pacman.PosX = Jogo.Width / 2;
+            Pacman.PosX = Jogo.Width / 2 - 40;
             Pacman.PosY = Jogo.Height / 2 +200;
             CriarParedes();
             
@@ -104,27 +104,26 @@ namespace PacManGame
             Paredes p3 = new Paredes(lado2.PosX - lado2.SizeX - 350, lado1.PosY + lado1.SizeX + 100, 300, 50);
             Paredes p4 = new Paredes(lado2.PosX - lado2.SizeX - 350, baixo.PosY - baixo.SizeY - 100, 300, 50);
 
+            //paredes dos fantasma
             Paredes mm = new Paredes(Jogo.Width / 2 - 150, Jogo.Height / 2, 300, 50);
             Paredes me = new Paredes(Jogo.Width / 2 - 150, Jogo.Height / 2 - 200, 50, 250);
             Paredes md = new Paredes((Jogo.Width / 2) + 100, Jogo.Height / 2 - 200, 50, 250);
 
-            Paredes p5 = new Paredes(mm.PosX, mm.PosY+ mm.SizeY + 100, 300, 50);
-            Paredes p6 = new Paredes(me.PosX - 150, me.PosY -150, 50, 750);
-            Paredes p7 = new Paredes(md.PosX + 150, me.PosY - 150, 50, 750);
-            //Paredes p6 = new Paredes(Jogo.Width / 11, Jogo.Height / 10 * 8, 300, 50);
-            //Paredes p7 = new Paredes(Jogo.Width / 11 * 8, Jogo.Height / 10 * 8, 300, 50);
+            //paredes laterais gigantes
+            Paredes p6 = new Paredes(me.PosX - 150, p1.PosY, 50, (int)(baixo.PosY - 100 - p1.PosY));
+            Paredes p7 = new Paredes(md.PosX + 150, p1.PosY, 50, (int)(baixo.PosY - 100 - p1.PosY));
 
-            ////cabine dos fantasmas
-            //
-            //Paredes p9 = new Paredes(Jogo.Width / 2-150, Jogo.Height / 2 - 200, 50, 250);
-            //Paredes p10 = new Paredes((Jogo.Width / 2 ) +100, Jogo.Height / 2 - 200, 50, 250);
+            Paredes p5 = new Paredes(mm.PosX, mm.PosY+ mm.SizeY + 100, 300, 50); // parede no meio para apoio
 
 
-            //Paredes p11 = new Paredes(Jogo.Width / 8 * 6  - 50, Jogo.Height / 7 + 150, 50,200);
-            //Paredes p12 = new Paredes(Jogo.Width / 8 * 6 - 50, Jogo.Height / 7 + 350, 200, 50);
-            //Paredes p13 = new Paredes(p12.PosX + p12.SizeX, p12.PosY, 50, 200);
+            Paredes p8 = new Paredes(p7.PosX+ p7.SizeX + 100, p7.PosY + 150, 400, 50); // L INVERTIDO MAIOR
+            Paredes p9 = new Paredes(p8.PosX + p8.SizeX -50, p8.PosY + p8.SizeY, 50, 300);
 
+            Paredes p10 = new Paredes(p8.PosX , p8.PosY + p8.SizeY +100, (int)p8.SizeX - p7.SizeX - 100 , 50); // L INVERTIDO MENOR
+            Paredes p11 = new Paredes(p10.PosX+p10.SizeX - 50, p10.PosY + p10.SizeY, 50, (int)((p4.PosY - p10.PosY+ p10.SizeY) -200));
 
+            Paredes p12 = new Paredes(p9.PosX, p9.PosY + p9.SizeY + 100, 50, (int)(p11.PosY + p11.SizeY  -(p9.PosY + p9.SizeY + 100)));
+            Paredes p13 = new Paredes(p10.PosX, p10.PosY + p10.SizeY, 50, (int)((p4.PosY - p10.PosY + p10.SizeY) - 200));
 
         }
     }
