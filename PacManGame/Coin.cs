@@ -54,6 +54,14 @@ namespace PacManGame
             {
                 this.Pegou();
             }
+            if(sprite is Paredes p)
+            {
+                this.Coletada = true;
+            }
+            if(sprite is Coin C)
+            {
+                C.Coletada = true;
+            }
         }
     }
 }

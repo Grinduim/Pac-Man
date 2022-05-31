@@ -45,8 +45,8 @@ namespace PacManGame
                 g.Clear(Color.Black);
                 Pacman.CheckCollision(Coin.TodasMoedas);
                 Pacman.CheckCollision(Paredes.TodasAsParedes);
-                Pacman.HitBox.Draw(g);
-                coin.HitBox.Draw(g);
+                //Pacman.HitBox.Draw(g);
+               // coin.HitBox.Draw(g);
                 Pacman.Draw(Jogo,g);
                 Paredes.DrawAll(Jogo, g);
                 Coin.DrawAll(Jogo,g);
@@ -135,27 +135,59 @@ namespace PacManGame
             Paredes p13 = new Paredes(p10.PosX, p10.PosY + p10.SizeY, 50, (int)((p4.PosY - p10.PosY + p10.SizeY) - 200));
 
             //lado esquerd
-            Paredes p14 = new Paredes(p1.PosX, p1.PosY+ p1.SizeY + 80, 400, 50);
-            Paredes p15A = new Paredes(p14.PosX + ( p14.SizeX )/2 -25 , p14.PosY + p14.SizeY, 50, 225);
-            Paredes p15B = new Paredes(p14.PosX + (p14.SizeX) / 2 - 25, p15A.PosY + p15A.SizeY + 100, 50, 145);
+            Paredes p14 = new Paredes(p1.PosX, p1.PosY+ p1.SizeY + 100, 400, 50);
+            Paredes p15A = new Paredes(p14.PosX + ( p14.SizeX )/2 -25 , p14.PosY + p14.SizeY, 50, 200);
+            Paredes p15B = new Paredes(p14.PosX + (p14.SizeX) / 2 - 25, p15A.PosY + p15A.SizeY + 100, 50, 125);
 
-            Paredes p16 = new Paredes(p15A.PosX - 150, p14.PosY + p14.SizeY + 100, 50, 350);
-            Paredes p17 = new Paredes(p15A.PosX + p15A.SizeX + 100, p14.PosY + p14.SizeY + 100, 50, 350);
+            Paredes p16 = new Paredes(p15A.PosX - 150, p14.PosY + p14.SizeY + 100, 50, 330);
+            Paredes p17 = new Paredes(p15A.PosX + p15A.SizeX + 100, p14.PosY + p14.SizeY + 100, 50, 330);
             Paredes p18 = new Paredes(p14.PosX, p16.PosY + p16.SizeY + 100, 400, 50);
 
 
         }
 
         public void CreatCoin()
-        {
-            foreach(var p in Paredes.TodasAsParedes)
+        { 
+            float coefx = 70;
+            float coefy = 60;
+            for(int x = 0; x < Jogo.Width / coefx; x++)
             {
-                for(int i = 0; i < p.PosY + p.SizeY; i =+40)
+                for(int y = 0; y < Jogo.Height / coefy; y ++)
                 {
-                      var c = new Coin(p.PosX, p.PosY + i);
+                    var flag = false;
+                    float posx = x * coefx;
+                    float posy = y * coefy;
+                    foreach(var p in Paredes.TodasAsParedes)
+                    {
+                        if(p.PosX - 10 <= posx && p.PosX+p.SizeX + 10 >= posx && p.PosY - 10 <= posy && p.PosY + p.SizeY + 10 >= posy)
+                        {
+                            
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        var c = new Coin( posx - 15, posy - 15);
+                    }
+                   
+                }
+            }
+            /*foreach(var p in Paredes.TodasAsParedes)
+            {
+                for(int i = 0; i < p.SizeX / 79; i ++)
+                {
+                    float posx = p.PosX + i * 80;
+                    float posy = p.PosY + 80;
+                    var c = new Coin(p.PosX + i * 80, p.PosY  + p.PosY + 80 );
+                    c.CheckCollision(Paredes.TodasAsParedes);
+                }
+                for(int i = 0; i < p.SizeY / 79; i++)
+                {
+                    var a = new Coin(p.PosX + p.SizeX + 40, p.PosY + i * 80 );
                 }
               
-            }
+            }*/
         }
     }
 }
