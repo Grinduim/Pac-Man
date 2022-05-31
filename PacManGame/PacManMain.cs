@@ -29,7 +29,7 @@ namespace PacManGame
             Pacman.PosX = Jogo.Width / 2 - 40;
             Pacman.PosY = Jogo.Height / 2 +220;
             CriarParedes();
-            
+            CreatCoin();
 
             var coin = new Coin(400, 150);
 
@@ -87,6 +87,10 @@ namespace PacManGame
                 tm.Start();
                 return;
             }
+            if(e.KeyCode == Keys.Space)
+            {
+                MessageBox.Show($"x: { Pacman.PosX} e Y: {Pacman.PosY}");
+            }
         }
 
         public void CriarParedes()
@@ -133,16 +137,25 @@ namespace PacManGame
             //lado esquerd
             Paredes p14 = new Paredes(p1.PosX, p1.PosY+ p1.SizeY + 80, 400, 50);
             Paredes p15A = new Paredes(p14.PosX + ( p14.SizeX )/2 -25 , p14.PosY + p14.SizeY, 50, 225);
-            Paredes p15B = new Paredes(p14.PosX + (p14.SizeX) / 2 - 25, p15A.PosY + p15A.SizeY + 80, 50, 145);
-
-
+            Paredes p15B = new Paredes(p14.PosX + (p14.SizeX) / 2 - 25, p15A.PosY + p15A.SizeY + 100, 50, 145);
 
             Paredes p16 = new Paredes(p15A.PosX - 150, p14.PosY + p14.SizeY + 100, 50, 350);
             Paredes p17 = new Paredes(p15A.PosX + p15A.SizeX + 100, p14.PosY + p14.SizeY + 100, 50, 350);
-
             Paredes p18 = new Paredes(p14.PosX, p16.PosY + p16.SizeY + 100, 400, 50);
 
 
+        }
+
+        public void CreatCoin()
+        {
+            foreach(var p in Paredes.TodasAsParedes)
+            {
+                for(int i = 0; i < p.PosY + p.SizeY; i =+40)
+                {
+                      var c = new Coin(p.PosX, p.PosY + i);
+                }
+              
+            }
         }
     }
 }
