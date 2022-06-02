@@ -1,37 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PacManGame
 {
-    public class PacMan : Sprite
+    internal class Ghost : Sprite
     {
-
         int direction = 0;
         public float coefVel { get; set; }
 
         public int Direction { get => direction; set => direction = value; }
 
-        public PacMan(float posX, float posY)
+        public Ghost(float posx, float posy, int Color)
         {
-            this.PosX = posX;
-            this.PosY = posY;
+            this.PosX = posx;
+            this.PosY = posy;
             this.VelX = 00;
             this.VelY = 00;
             this.SizeX = 80;
             this.SizeY = 80;
-            this.Image = new Image[] { Properties.Resources.pacman_boca_aberta, Properties.Resources.pacaman_boca_fechada };
+            this.Image = new Image[] { Properties.Resources.ghost_amarelo, Properties.Resources.ghost_amarelo2, Properties.Resources.ghost_azul, Properties.Resources.ghost_azul2,
+            Properties.Resources.ghost_rose, Properties.Resources.ghost_rosa2 , Properties.Resources.ghost_vermelho, Properties.Resources.ghost_vermelho2};
             this.HitBox = HitBox.FromSprite(this);
 
-            this.PosImageAtual = 0;
+            switch (Color)
+            {
+                case 1:
+                    PosImageAtual = 0;
+                    break;
+                case 2:
+                    PosImageAtual = 2;
+                    break;
+                case 3:
+                    PosImageAtual = 4;
+                    break;
+                case 4:
+                    PosImageAtual = 6;
+                    break;
+
+            }
 
             this.Direction = 0;
 
             coefVel = 10;
+        }
+        public override void Draw(PictureBox Jogo, Graphics g)
+        {
+
+            if (PosImageAtual % 2 == 0)
+            {
+                PosImageAtual++;
+            }
+            else
+            {
+                PosImageAtual--;
+            }
+
+
+            g.DrawImage(this.Image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
+
         }
 
         public void Right()
@@ -151,54 +182,6 @@ namespace PacManGame
             this.VelY = coefVel;
         }
 
-        public  override void Draw(PictureBox Jogo, Graphics g)
-        {
-
-            if (PosImageAtual % 2 == 0)
-            {
-                PosImageAtual++;
-            }
-            else
-            {
-                PosImageAtual--;
-            }
-
-
-            g.DrawImage(this.Image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
-
-        }
-
-        public override void OnCollision(CollisionInfo info, Sprite sprite)
-        {
-
-            if (sprite is Coin c)
-            {
-                c.Pegou();
-            }
-            if(sprite is Paredes p)
-            {
-                if (info.CollisionPoints.Count > 1)
-                {
-                    if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
-                    {
-                        this.PosX = PosX - VelX;
-                    }
-                    else
-                    {
-                        this.PosY = this.PosY - VelY;
-                    }
-                }
-                else if(info.SideA.X  == info.SideB.X)
-                {
-                        this.PosX = PosX - VelX;
-                }
-                else
-                {
-                    this.PosY = this.PosY - VelY;
-                }
-            }
-        }
-
-    }
     }
 
+}

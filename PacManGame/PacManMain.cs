@@ -31,8 +31,6 @@ namespace PacManGame
             CriarParedes();
             CreatCoin();
 
-            var coin = new Coin(400, 150);
-
             Jogo.Image = new Bitmap(Jogo.Width, Jogo.Height);
             Bitmap bmp = Jogo.Image as Bitmap;
             Graphics g = Graphics.FromImage(bmp);
@@ -45,8 +43,6 @@ namespace PacManGame
                 g.Clear(Color.Black);
                 Pacman.CheckCollision(Coin.TodasMoedas);
                 Pacman.CheckCollision(Paredes.TodasAsParedes);
-                //Pacman.HitBox.Draw(g);
-               // coin.HitBox.Draw(g);
                 Pacman.Draw(Jogo,g);
                 Paredes.DrawAll(Jogo, g);
                 Coin.DrawAll(Jogo,g);
