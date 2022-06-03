@@ -30,6 +30,7 @@ namespace PacManGame
             Pacman.PosY = Jogo.Height / 2 +220;
             CriarParedes();
             CreatCoin();
+            CreatGhost();
 
             Jogo.Image = new Bitmap(Jogo.Width, Jogo.Height);
             Bitmap bmp = Jogo.Image as Bitmap;
@@ -39,13 +40,15 @@ namespace PacManGame
             tm.Interval = 60;
             tm.Tick += delegate
             {
-                Pacman.Move(tm);
+                Pacman.Move();
+                Ghost.MovelAll();
                 g.Clear(Color.Black);
                 Pacman.CheckCollision(Coin.TodasMoedas);
                 Pacman.CheckCollision(Paredes.TodasAsParedes);
                 Pacman.Draw(Jogo,g);
                 Paredes.DrawAll(Jogo, g);
                 Coin.DrawAll(Jogo,g);
+                Ghost.DrawAll(Jogo, g);
                 Jogo.Refresh();
                 
             };
@@ -169,21 +172,19 @@ namespace PacManGame
                    
                 }
             }
-            /*foreach(var p in Paredes.TodasAsParedes)
-            {
-                for(int i = 0; i < p.SizeX / 79; i ++)
-                {
-                    float posx = p.PosX + i * 80;
-                    float posy = p.PosY + 80;
-                    var c = new Coin(p.PosX + i * 80, p.PosY  + p.PosY + 80 );
-                    c.CheckCollision(Paredes.TodasAsParedes);
-                }
-                for(int i = 0; i < p.SizeY / 79; i++)
-                {
-                    var a = new Coin(p.PosX + p.SizeX + 40, p.PosY + i * 80 );
-                }
-              
-            }*/
         }
+
+        public void CreatGhost()
+        {   
+            Random rnd = new Random(DateTime.Now.Millisecond + DateTime.Now.Minute * DateTime.Now.Day / DateTime.Now.Second);
+            float posx = Jogo.Width / 2 - Jogo.Width *0.025f;
+            float posy = Jogo.Height / 2  - Jogo.Height * 0.1f;
+            int coefrnd = 55;
+            var yellow = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-coefrnd, coefrnd), 1);
+            var blue = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-15, 15), 2);
+            var pink = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-coefrnd, coefrnd), 3);
+            var red = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-coefrnd, coefrnd), 4);
+        }
+
     }
 }

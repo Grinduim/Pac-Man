@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Coin.cs" />
     <Compile Include="ColissionInfo.cs" />
+    <Compile Include="Ghost.cs" />
     <Compile Include="HitBox.cs" />
     <Compile Include="PacMan.cs" />
     <Compile Include="PacManMain.cs">

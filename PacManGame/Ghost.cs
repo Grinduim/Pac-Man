@@ -13,7 +13,10 @@ namespace PacManGame
         int direction = 0;
         public float coefVel { get; set; }
 
+        public bool Free { get; set; } = false;
         public int Direction { get => direction; set => direction = value; }
+
+        public static List<Ghost> All { get; set; } = new List<Ghost>();
 
         public Ghost(float posx, float posy, int Color)
         {
@@ -47,6 +50,18 @@ namespace PacManGame
             this.Direction = 0;
 
             coefVel = 10;
+            Ghost.All.Add(this);
+
+            Timer tm = new Timer();
+            tm.Interval = 2000 * Color;
+            tm.Tick += delegate
+            {
+                this.GetOff();
+                tm.Stop();
+                this.Free = true;   
+            };
+            tm.Start();
+
         }
         public override void Draw(PictureBox Jogo, Graphics g)
         {
@@ -182,6 +197,96 @@ namespace PacManGame
             this.VelY = coefVel;
         }
 
+        public static void DrawAll(PictureBox Jogo, Graphics g)
+        {
+            foreach(var item in Ghost.All)
+            {
+                item.Draw(Jogo, g); 
+            }
+        }
+
+        public void GetOff()
+        {
+            this.PosY = 220;
+        }
+
+        public override void Move()
+        {
+            base.Move();
+
+        }
+        public void ChangeDirection()
+        {
+            Random rnd =  new Random(DateTime.Now.Millisecond);
+            var opc = rnd.Next(1,5);
+            if (opc == 1)
+            {
+                this.Right();
+            }
+            else if ( opc == 2)
+            {
+                this.Left();
+            }
+            else if ( opc == 3)
+            {
+                this.Up();
+            }
+            else if ( opc == 4)
+            {
+                this.Down();
+            }
+
+        }   
+
+        public  static void MovelAll()
+        {
+            foreach(var ghost in Ghost.All)
+            {
+                var posx = ghost.PosX;
+                var posy = ghost.PosY;
+                if(ghost.Free == true)
+                {
+                    ghost.Move();
+                    ghost.CheckCollision(Paredes.TodasAsParedes);
+                }
+                else
+                {
+
+                    continue;
+                }
+
+                if(posx == ghost.PosX && posy == ghost.PosY)
+                {
+                    ghost.ChangeDirection();
+                }
+            }
+        }
+
+        public override void OnCollision(CollisionInfo info, Sprite sprite)
+        {
+            if (sprite is Paredes p)
+            {
+                if (info.CollisionPoints.Count > 1)
+                {
+                    if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
+                    {
+                        this.PosX = PosX - VelX;
+                    }
+                    else
+                    {
+                        this.PosY = this.PosY - VelY;
+                    }
+                }
+                else if (info.SideA.X == info.SideB.X)
+                {
+                    this.PosX = PosX - VelX;
+                }
+                else
+                {
+                    this.PosY = this.PosY - VelY;
+                }
+            }
+        }
     }
 
 }

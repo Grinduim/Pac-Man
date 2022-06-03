@@ -35,11 +35,10 @@ namespace PacManGame
         public Image[] Image { get => image; set => image = value; }
         public int PosImageAtual { get => posImageAtual; set => posImageAtual = value; }
 
-        public void Move(Timer tm)
+        public virtual void Move()
         {
             PosX += velX;
             posY += velY;
-            tm.Start();
         }
 
         public virtual void Draw(PictureBox Jogo, Graphics g)
@@ -75,6 +74,7 @@ namespace PacManGame
                 info = entity.HitBox.IsColliding(HitBox);
                 if (info.IsColliding)
                     OnCollision(info, entity);
+
             }
             
         }
