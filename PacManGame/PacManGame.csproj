@@ -50,6 +50,7 @@
     <Compile Include="ColissionInfo.cs" />
     <Compile Include="Ghost.cs" />
     <Compile Include="HitBox.cs" />
+    <Compile Include="InvisibleWall.cs" />
     <Compile Include="PacMan.cs" />
     <Compile Include="PacManMain.cs">
       <SubType>Form</SubType>

@@ -58,52 +58,19 @@ namespace PacManGame
             {
                 this.GetOff();
                 tm.Stop();
-                this.Free = true;   
+                this.Free = true;
             };
             tm.Start();
 
         }
         public override void Draw(PictureBox Jogo, Graphics g)
         {
-
-            if (PosImageAtual % 2 == 0)
-            {
-                PosImageAtual++;
-            }
-            else
-            {
-                PosImageAtual--;
-            }
-
-
             g.DrawImage(this.Image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
 
         }
 
         public void Right()
         {
-            this.PosImageAtual = 0;
-            RotateFlipType rft = new RotateFlipType();
-            if (this.Direction != 0)
-            {
-                if (this.direction == 1)
-                {
-                    rft = (RotateFlipType)4;
-                }
-                if (this.direction == 2)
-                {
-                    rft = (RotateFlipType)1;
-                }
-                if (this.direction == 3)
-                {
-                    rft = (RotateFlipType)5;
-                }
-                var printImage = this.Image[0];
-                printImage.RotateFlip(rft);
-                printImage = this.Image[1];
-                printImage.RotateFlip(rft);
-            }
-
             this.direction = 0;
             this.VelX = coefVel;
             this.VelY = 0;
@@ -111,29 +78,6 @@ namespace PacManGame
 
         public void Left()
         {
-
-            this.PosImageAtual = 0;
-            RotateFlipType rft = new RotateFlipType();
-            if (this.Direction != 1)
-            {
-                if (this.direction == 0)
-                {
-                    rft = (RotateFlipType)4;
-                }
-                if (this.direction == 3)
-                {
-                    rft = (RotateFlipType)1;
-                }
-                if (this.direction == 2)
-                {
-                    rft = (RotateFlipType)5;
-                }
-                var printImage = this.Image[0];
-                printImage.RotateFlip(rft);
-                printImage = this.Image[1];
-                printImage.RotateFlip(rft);
-            }
-
             this.direction = 1;
             this.VelX = -coefVel;
             this.VelY = 0;
@@ -141,28 +85,6 @@ namespace PacManGame
 
         public void Up()
         {
-            this.PosImageAtual = 0;
-            RotateFlipType rft = new RotateFlipType();
-            if (this.Direction != 2)
-            {
-                if (this.direction == 3)
-                {
-                    rft = (RotateFlipType)6;
-                }
-                if (this.direction == 0)
-                {
-                    rft = (RotateFlipType)3;
-                }
-                if (this.direction == 1)
-                {
-                    rft = (RotateFlipType)5;
-                }
-                var printImage = this.Image[0];
-                printImage.RotateFlip(rft);
-                printImage = this.Image[1];
-                printImage.RotateFlip(rft);
-            }
-
             this.direction = 2;
             this.VelX = 0;
             this.VelY = -coefVel;
@@ -170,28 +92,6 @@ namespace PacManGame
 
         public void Down()
         {
-            this.PosImageAtual = 0;
-
-            RotateFlipType rft = new RotateFlipType();
-            if (this.Direction != 3)
-            {
-                if (this.direction == 2)
-                {
-                    rft = (RotateFlipType)6;
-                }
-                if (this.direction == 0)
-                {
-                    rft = (RotateFlipType)5;
-                }
-                if (this.direction == 1)
-                {
-                    rft = (RotateFlipType)3;
-                }
-                var printImage = this.Image[0];
-                printImage.RotateFlip(rft);
-                printImage = this.Image[1];
-                printImage.RotateFlip(rft);
-            }
             this.direction = 3;
             this.VelX = 0;
             this.VelY = coefVel;
@@ -199,9 +99,9 @@ namespace PacManGame
 
         public static void DrawAll(PictureBox Jogo, Graphics g)
         {
-            foreach(var item in Ghost.All)
+            foreach (var item in Ghost.All)
             {
-                item.Draw(Jogo, g); 
+                item.Draw(Jogo, g);
             }
         }
 
@@ -217,37 +117,38 @@ namespace PacManGame
         }
         public void ChangeDirection()
         {
-            Random rnd =  new Random(DateTime.Now.Millisecond);
-            var opc = rnd.Next(1,5);
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            var opc = rnd.Next(1, 5);
             if (opc == 1)
             {
                 this.Right();
             }
-            else if ( opc == 2)
+            else if (opc == 2)
             {
                 this.Left();
             }
-            else if ( opc == 3)
+            else if (opc == 3)
             {
                 this.Up();
             }
-            else if ( opc == 4)
+            else if (opc == 4)
             {
                 this.Down();
             }
 
-        }   
+        }
 
-        public  static void MovelAll()
+        public static void MovelAll()
         {
-            foreach(var ghost in Ghost.All)
+            foreach (var ghost in Ghost.All)
             {
                 var posx = ghost.PosX;
                 var posy = ghost.PosY;
-                if(ghost.Free == true)
+                if (ghost.Free == true)
                 {
                     ghost.Move();
                     ghost.CheckCollision(Paredes.TodasAsParedes);
+                    ghost.CheckCollision(InvisibleWall.Walls);
                 }
                 else
                 {
@@ -255,7 +156,7 @@ namespace PacManGame
                     continue;
                 }
 
-                if(posx == ghost.PosX && posy == ghost.PosY)
+                if (posx == ghost.PosX && posy == ghost.PosY)
                 {
                     ghost.ChangeDirection();
                 }
@@ -286,7 +187,32 @@ namespace PacManGame
                     this.PosY = this.PosY - VelY;
                 }
             }
+            if (sprite is InvisibleWall i)
+            {
+                if(i)
+                if (info.CollisionPoints.Count > 1)
+                {
+                    if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
+                    {
+                        this.PosX = PosX - VelX;
+                    }
+                    else
+                    {
+                        this.PosY = this.PosY - VelY;
+                    }
+                }
+                else if (info.SideA.X == info.SideB.X)
+                {
+                    this.PosX = PosX - VelX;
+                }
+                else
+                {
+                    this.PosY = this.PosY - VelY;
+                }
+            }
         }
+        
+
     }
 
 }

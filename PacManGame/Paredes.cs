@@ -11,7 +11,7 @@ namespace PacManGame
     public class Paredes : Sprite
     {
 
-        private static List<Paredes> todasAsParedes = new List<Paredes>();
+        private static List<Paredes> todasAsParedes { get;set; } = new List<Paredes>();
 
         public static List<Paredes> TodasAsParedes { get => todasAsParedes; set => todasAsParedes = value; }
 
@@ -32,22 +32,28 @@ namespace PacManGame
 
         public override void Draw(PictureBox Jogo, Graphics g)
         {
-            g.DrawImage(this.Image[0], this.PosX, this.PosY, this.SizeX, this.SizeY);
+            if (this.Image != null)
+            {
+                g.DrawImage(this.Image[0], this.PosX, this.PosY, this.SizeX, this.SizeY);
+            }
+
+           
         }
 
         public static void DrawAll(PictureBox Jogo, Graphics g)
         {
             foreach(Paredes parede in Paredes.TodasAsParedes)
             {
+  
                 if(parede.SizeX >= parede.SizeY){
                     parede.Draw(Jogo, g);
-                    //parede.HitBox.Draw(g);
+                    parede.HitBox.Draw(g);
                 }
                 else
                 {
                     parede.Image[parede.PosImageAtual].RotateFlip((RotateFlipType)1);
                     parede.Draw(Jogo, g);
-                    //parede.HitBox.Draw(g);
+                    parede.HitBox.Draw(g);
                     parede.Image[parede.PosImageAtual].RotateFlip((RotateFlipType)3);
                 }
                 
