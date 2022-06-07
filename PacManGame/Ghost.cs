@@ -18,6 +18,9 @@ namespace PacManGame
 
         public static List<Ghost> All { get; set; } = new List<Ghost>();
 
+        private int countMove;
+        private bool CollisionWithWall = false ;
+
         public Ghost(float posx, float posy, int Color)
         {
             this.PosX = posx;
@@ -113,6 +116,19 @@ namespace PacManGame
         public override void Move()
         {
             base.Move();
+            if (this.CollisionWithWall)
+            {
+                if (this.countMove ==  6 )
+                {
+                    this.CollisionWithWall = false;
+                    this.ChangeDirection();
+                    this.countMove = 0;
+                    return;
+
+                }
+                this.countMove++;
+            }
+           
 
         }
         public void ChangeDirection()
@@ -167,6 +183,7 @@ namespace PacManGame
         {
             if (sprite is Paredes p)
             {
+                MessageBox.Show("Acertou");
                 if (info.CollisionPoints.Count > 1)
                 {
                     if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
@@ -189,28 +206,15 @@ namespace PacManGame
             }
             if (sprite is InvisibleWall i)
             {
-                if(i)
-                if (info.CollisionPoints.Count > 1)
+                if( i.colision == true )
                 {
-                    if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)
-                    {
-                        this.PosX = PosX - VelX;
-                    }
-                    else
-                    {
-                        this.PosY = this.PosY - VelY;
-                    }
+                    this.CollisionWithWall = true;
+                    i.Desactive();
                 }
-                else if (info.SideA.X == info.SideB.X)
-                {
-                    this.PosX = PosX - VelX;
-                }
-                else
-                {
-                    this.PosY = this.PosY - VelY;
-                }
+               
             }
         }
+
         
 
     }
