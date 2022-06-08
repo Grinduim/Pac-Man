@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Coin.cs" />
     <Compile Include="ColissionInfo.cs" />
+    <Compile Include="Defeat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Defeat.Designer.cs">
+      <DependentUpon>Defeat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ghost.cs" />
     <Compile Include="HitBox.cs" />
     <Compile Include="InvisibleWall.cs" />
@@ -64,6 +70,9 @@
     <Compile Include="RecHitBox.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="SpriteHitBox.cs" />
+    <EmbeddedResource Include="Defeat.resx">
+      <DependentUpon>Defeat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PacManMain.resx">
       <DependentUpon>PacManMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pacman-boca-aberta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-coin-sound-effects-1980-1981.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-coin-sound-effects-1980-1981 %28mp3cut.net%29.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

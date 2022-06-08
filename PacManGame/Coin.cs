@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,6 +47,14 @@ namespace PacManGame
         public void Pegou()
         {
             this.Coletada = true;
+            PacManMain.Score += 10;
+            tocarSom();
+        }
+
+        public void tocarSom()
+        {
+            SoundPlayer som = new SoundPlayer(Properties.Resources.man_coin_sound_effects_1980_1981__mp3cut_net_);
+            som.Play();
         }
 
         public override void OnCollision(CollisionInfo info, Sprite sprite )

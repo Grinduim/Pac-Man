@@ -133,23 +133,64 @@ namespace PacManGame
         }
         public void ChangeDirection()
         {
+            // direita 0
+            //esquerda 1
+            //cima 2
+            //baixo 3
             Random rnd = new Random(DateTime.Now.Millisecond);
-            var opc = rnd.Next(1, 5);
-            if (opc == 1)
+            int opc = rnd.Next(1,8);
+
+            if(this.direction == 0)
             {
-                this.Right();
+                if(opc == 1)
+                    this.Left();
+                else if(opc == 2 ||opc == 3)
+                    this.Up();
+
+                else if( opc == 4 || opc == 5)
+                    this.Down();
+
+                else if(opc == 7 || opc == 6)
+                    this.Right();
             }
-            else if (opc == 2)
+            else if(this.direction  == 1)
             {
-                this.Left();
+                if (opc == 1)
+                    this.Right();
+                else if (opc == 2 || opc == 3)
+                    this.Up();
+
+                else if (opc == 4 || opc == 5)
+                    this.Down();
+
+                else if (opc == 7 || opc == 6)
+                    this.Left();
             }
-            else if (opc == 3)
+            else if( this.direction == 2)
             {
-                this.Up();
+                if (opc == 1)
+                    this.Up();
+                else if (opc == 2 || opc == 3)
+                    this.Right();
+
+                else if (opc == 4 || opc == 5)
+                    this.Down();
+
+                else if (opc == 7 || opc == 6)
+                    this.Left();
             }
-            else if (opc == 4)
+            else if(this.direction == 3)
             {
-                this.Down();
+                if (opc == 1)
+                    this.Down();
+                else if (opc == 2 || opc == 3)
+                    this.Right();
+
+                else if (opc == 4 || opc == 5)
+                    this.Up();
+
+                else if (opc == 7 || opc == 6)
+                    this.Left();
             }
 
         }
@@ -183,7 +224,6 @@ namespace PacManGame
         {
             if (sprite is Paredes p)
             {
-                MessageBox.Show("Acertou");
                 if (info.CollisionPoints.Count > 1)
                 {
                     if (info.CollisionPoints[0].X == info.CollisionPoints[1].X)

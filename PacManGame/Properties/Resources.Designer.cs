@@ -171,6 +171,15 @@ namespace PacManGame.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream man_coin_sound_effects_1980_1981__mp3cut_net_ {
+            get {
+                return ResourceManager.GetStream("man_coin_sound_effects_1980_1981__mp3cut_net_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pacaman_boca_fechada {

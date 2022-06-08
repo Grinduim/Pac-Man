@@ -13,7 +13,8 @@ namespace PacManGame
     public partial class PacManMain : Form
     {
         PacMan Pacman = new PacMan(10, 150);
-        
+        public  static    
+        int Score { get; set; }
 
         Timer tm = new Timer();
         
@@ -45,6 +46,7 @@ namespace PacManGame
                 g.Clear(Color.Black);
                 Pacman.CheckCollision(Coin.TodasMoedas);
                 Pacman.CheckCollision(Paredes.TodasAsParedes);
+                Pacman.CheckCollision(Ghost.All);
                 Pacman.Draw(Jogo,g);
                 Paredes.DrawAll(Jogo, g);
                 InvisibleWall.DrawAll(Jogo,g);
@@ -218,5 +220,9 @@ namespace PacManGame
             var red = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-coefrnd, coefrnd), 4);
         }
 
+        public static void Defeat()
+        {
+            Application.Exit();
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace PacManGame
     public class InvisibleWall : Sprite
     {
         public bool colision { get; set; }
+        private static int coef = 20;
+        private static int size = 60;
         public static List<InvisibleWall> Walls { get; set; } =   new List<InvisibleWall>();
         public InvisibleWall(float posx, float posy, int sizex, int sizey) 
         {
@@ -38,7 +40,7 @@ namespace PacManGame
         {
             this.colision = false;
             Timer tm = new Timer();
-            tm.Interval = 3500;
+            tm.Interval = 4000;
             tm.Tick += delegate
             {
                 this.colision = true;
@@ -50,24 +52,24 @@ namespace PacManGame
 
         public static void CreatWallDownRight(Paredes p)
         {
-            var teste = new InvisibleWall(p.PosX + p.SizeX + 10, p.PosY + p.SizeY + 15, 50, 50);
+            var teste = new InvisibleWall(p.PosX + p.SizeX + coef, p.PosY + p.SizeY + coef, size, size);
             teste.CheckCollision(InvisibleWall.Walls);
         }
         public static void CreatWallDownLeft(Paredes p)
         {
-            var teste = new InvisibleWall(p.PosX - 90, p.PosY + p.SizeY + 15, 50, 50);
+            var teste = new InvisibleWall(p.PosX - (coef + size), p.PosY + p.SizeY + coef, size, size);
             teste.CheckCollision(InvisibleWall.Walls);
         }
 
         public static void CreatWallTopRight(Paredes p)
         {
-            var teste = new InvisibleWall(p.PosX + p.SizeX + 10, p.PosY - 80, 50, 50);
+            var teste = new InvisibleWall(p.PosX + p.SizeX + coef, p.PosY - (coef + size) , size, size);
             teste.CheckCollision(InvisibleWall.Walls);
         }
 
         public static void CreatWallTopLeft(Paredes p)
         {
-            var teste = new InvisibleWall(p.PosX - 80, p.PosY - 60, 50, 50);
+            var teste = new InvisibleWall(p.PosX - (coef + size), p.PosY - (coef + size), size, size);
             teste.CheckCollision(InvisibleWall.Walls);
         }
 

@@ -197,6 +197,12 @@ namespace PacManGame
                     this.PosY = this.PosY - VelY;
                 }
             }
+            if(sprite is Ghost)
+            {
+                PacManMain.Defeat();
+            
+
+            }
         }
 
     }

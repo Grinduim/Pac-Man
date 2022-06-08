@@ -20,3 +20,4 @@ C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.GenerateRe
 C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.csproj.CoreCompileInputs.cache
 C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.exe
 C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.pdb
+C:\Users\Aluno\Desktop\Pac-Man\PacManGame\obj\Debug\PacManGame.Defeat.resources
