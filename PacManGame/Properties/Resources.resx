@@ -151,6 +151,9 @@
   <data name="ghost_vermelho2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ghost-vermelho2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="man_coin_sound_effects_1980_1981__mp3cut_net_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\man-coin-sound-effects-1980-1981 (mp3cut.net).wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

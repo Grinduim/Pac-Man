@@ -16,6 +16,9 @@ namespace PacManGame
 
         public int Direction { get => direction; set => direction = value; }
 
+        public bool WasKilled { get; set; } = false;
+        public int Lifes { get; set; } = 3;
+
         public PacMan(float posX, float posY)
         {
             this.PosX = posX;
@@ -93,6 +96,12 @@ namespace PacManGame
             this.VelY = 0;
         }
 
+        public void stop()
+        {
+            this.VelY = 0;
+            this.VelX = 0;
+        }
+
         public void Up()
         {
             this.PosImageAtual = 0;
@@ -166,6 +175,21 @@ namespace PacManGame
 
             g.DrawImage(this.Image[PosImageAtual], this.PosX, this.PosY, this.SizeX, this.SizeY);
 
+            this.DrawHeart(Jogo, g);
+        }
+
+        public void HimDie()
+        {
+            if(this.Lifes > 0)
+            {
+                this.WasKilled = true;
+                this.PosX = 980;
+                this.PosY = 760;
+                this.Right();
+                this.stop();
+                this.Lifes--;
+            }
+           
         }
 
         public override void OnCollision(CollisionInfo info, Sprite sprite)
@@ -199,9 +223,20 @@ namespace PacManGame
             }
             if(sprite is Ghost)
             {
-                PacManMain.Defeat();
-            
+                this.WasKilled = true;
+                this.HimDie();
+            }
+        }
 
+
+        public void DrawHeart(PictureBox Jogo, Graphics g)
+        {
+            int x = 0;
+            for(int i = 0; i < this.Lifes; i++)
+            {
+
+                g.DrawImage(Properties.Resources.heart, Jogo.Width/2 - 50 + x, 15, 30, 30);
+                x += 50;
             }
         }
 

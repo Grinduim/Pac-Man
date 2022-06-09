@@ -72,5 +72,18 @@ namespace PacManGame
                 C.Coletada = true;
             }
         }
+
+        public bool AllCoinsColeted()
+        {
+            foreach (var item in Coin.TodasMoedas)
+            {
+                
+                if (!item.Coletada)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

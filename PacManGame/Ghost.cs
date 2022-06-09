@@ -50,20 +50,13 @@ namespace PacManGame
 
             }
 
+
             this.Direction = 0;
 
             coefVel = 10;
             Ghost.All.Add(this);
 
-            Timer tm = new Timer();
-            tm.Interval = 2000 * Color;
-            tm.Tick += delegate
-            {
-                this.GetOff();
-                tm.Stop();
-                this.Free = true;
-            };
-            tm.Start();
+            this.GetOff();
 
         }
         public override void Draw(PictureBox Jogo, Graphics g)
@@ -110,7 +103,16 @@ namespace PacManGame
 
         public void GetOff()
         {
-            this.PosY = 220;
+            Timer tm = new Timer();
+            tm.Interval = 1500  * (this.PosImageAtual +1 ) / 2 ;
+            tm.Tick += delegate
+            { 
+                tm.Stop();
+                this.Free = true;
+                this.PosY = 220;
+            };
+            tm.Start();
+            
         }
 
         public override void Move()
@@ -254,8 +256,6 @@ namespace PacManGame
                
             }
         }
-
-        
 
     }
 

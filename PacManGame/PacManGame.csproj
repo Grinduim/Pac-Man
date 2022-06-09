@@ -192,5 +192,8 @@
   <ItemGroup>
     <None Include="Resources\man-coin-sound-effects-1980-1981 %28mp3cut.net%29.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

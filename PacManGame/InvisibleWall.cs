@@ -87,7 +87,6 @@ namespace PacManGame
             {
                 if(InvisibleWall.Walls.Count > 0)
                 {
-                    //InvisibleWall.Walls.RemoveAt);
 
                 }
             }

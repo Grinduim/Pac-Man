@@ -17,7 +17,8 @@ namespace PacManGame
         int Score { get; set; }
 
         Timer tm = new Timer();
-        
+
+
         public PacManMain()
         {
             InitializeComponent();
@@ -49,10 +50,20 @@ namespace PacManGame
                 Pacman.CheckCollision(Ghost.All);
                 Pacman.Draw(Jogo,g);
                 Paredes.DrawAll(Jogo, g);
-                InvisibleWall.DrawAll(Jogo,g);
+                //InvisibleWall.DrawAll(Jogo,g);
                 Coin.DrawAll(Jogo,g);
                 Ghost.DrawAll(Jogo, g);
                 Jogo.Refresh();
+
+
+                if(Pacman.Lifes < 1)
+                {
+                    var defeat = new Defeat();
+                    defeat.Show();
+
+                    this.Hide();
+                    tm.Stop();
+                }
                 
             };
             tm.Start();
@@ -198,6 +209,7 @@ namespace PacManGame
                             flag = true;
                             break;
                         }
+                        
                     }
                     if (!flag)
                     {
@@ -220,9 +232,6 @@ namespace PacManGame
             var red = new Ghost(posx - rnd.Next(-coefrnd, coefrnd), posy - rnd.Next(-coefrnd, coefrnd), 4);
         }
 
-        public static void Defeat()
-        {
-            Application.Exit();
-        }
+
     }
 }

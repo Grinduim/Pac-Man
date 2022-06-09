@@ -47,13 +47,13 @@ namespace PacManGame
   
                 if(parede.SizeX >= parede.SizeY){
                     parede.Draw(Jogo, g);
-                    parede.HitBox.Draw(g);
+                    //parede.HitBox.Draw(g);
                 }
                 else
                 {
                     parede.Image[parede.PosImageAtual].RotateFlip((RotateFlipType)1);
                     parede.Draw(Jogo, g);
-                    parede.HitBox.Draw(g);
+                    //parede.HitBox.Draw(g);
                     parede.Image[parede.PosImageAtual].RotateFlip((RotateFlipType)3);
                 }
                 
